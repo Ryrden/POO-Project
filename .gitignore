@@ -1,0 +1,32 @@
+# Compiled source #
+############
+*.exe
+main.out
+
+# Packages #
+############
+*.rar
+*.zip
+
+# Test files #
+############
+*.in
+*.out
+Casos de Teste/
+
+# Other files #
+############
+*.csv
+*.bin
+
+# Netbeans metadata #
+###########
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IntelliJ IDEA #
+###########
+.idea/
