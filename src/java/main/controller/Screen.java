@@ -2,6 +2,8 @@ package main.controller;
 
 import main.assistant.Constants;
 import main.assistant.Drawing;
+import main.gamePhase.GamePhase;
+import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
 import main.model.CharacterExample;
@@ -64,6 +66,9 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         EnemyExample bV = new EnemyExample("caracterSprites/Haskell.png");
         bV.setPosition(9, 1);
         this.addCharacter_(bV);
+
+        GamePhase phase = Phases.Phase1();
+        this.addCharacter_(phase.getObstacle().get(0));
     }
 
 
