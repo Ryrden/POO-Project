@@ -1,9 +1,9 @@
 package main.gamePhase;
 
 import main.model.GameElement;
-import main.model.StaticObstacle;
 import main.model.collectable.javaCoffe;
 import main.model.enemys.CPlusPlus;
+import main.model.enemys.Haskell;
 import main.model.scene.Grass;
 import main.model.scene.Wall;
 
@@ -60,6 +60,60 @@ public class Phases {
 
         return new
                 GamePhase(
+                obstacles,
+                enemies,
+                collectables,
+                finalChest
+        );
+    }
+
+    public static GamePhase Phase2() {
+        ArrayList<GameElement> obstacles = new ArrayList<>();
+        int[][] wallPositionsArray = {
+                {9, 1},
+                {1, 2}, {7, 2},
+                {1, 3}, {3, 3}, {5, 3},
+                {0, 4}, {9, 4},
+                {3, 5}, {8, 5},
+                {2, 7}, {4,7}, {5,7}, {7, 7},
+                {1,9},
+                {0, 10}, {3,10}, {8, 10},
+        };
+        for (int[] wallPosition : wallPositionsArray) {
+            obstacles.add(new Wall(wallPosition[1], wallPosition[0], "scenerySprites/obstacle1.png"));
+        }
+        int[][] bushPositionsArray = {
+                {1, 0}, {3, 0}, {4, 0}, {5, 0}, {7, 0},
+                {3, 1}, {5, 1}, {7, 1},
+                {9,2},
+                {9,3},{7, 3},
+                {1, 4}, {5,4},
+                {2, 5}, {4, 5}, {6, 5},
+                {0, 6}, {10, 6},
+                {3, 7}, {6, 7}, {8, 7}, {9, 7},
+                {7, 8},
+                {3, 9}, {5, 9}, {6, 9}, {9, 9},
+                {1, 10}, {9, 10}
+        };
+        for (int[] Position : bushPositionsArray) {
+            obstacles.add(new Wall(Position[1], Position[0], "scenerySprites/obstacle2.png"));
+        }
+
+        ArrayList<GameElement> enemies = new ArrayList<>();
+
+        int[][] enemyPositionsArray = {
+                {4, 4}, {2, 4}
+        };
+
+        for (int[] Position : enemyPositionsArray) {
+            enemies.add(new Haskell(Position[1], Position[0], "caveira.png"));
+        }
+        enemies.add(new CPlusPlus(6, 4, "bichinho.png"));
+
+        ArrayList<GameElement> collectables = new ArrayList<>();
+        ArrayList<GameElement> finalChest = new ArrayList<>();
+
+        return new GamePhase(
                 obstacles,
                 enemies,
                 collectables,

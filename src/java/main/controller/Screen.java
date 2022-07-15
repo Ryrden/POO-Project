@@ -56,7 +56,10 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         this.addCharacter_(player);
 
         GamePhase phase;
-        switch (phaseNumber) {
+        switch (phaseNumber){
+            case 2:
+                phase = Phases.Phase2();
+                break;
             default:
                 phase = Phases.Phase1();
                 break;
