@@ -4,7 +4,6 @@ import main.controller.Screen;
 
 import java.io.Serializable;
 import java.awt.Graphics;
-import java.io.Serializable;
 import javax.swing.ImageIcon;
 
 public class Drawing implements Serializable {
