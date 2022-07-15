@@ -18,7 +18,7 @@ public class GameController {
         GameElement currentElement;
         for (int i = 1; i < elementsArray.size(); i++) {
             currentElement = elementsArray.get(i);
-            if (player.getPosition().equals(currentElement.getPosition())) {
+        if (player.getPosition().equals(currentElement.getPosition())){
                 if (currentElement.isCollectable()) {
                     elementsArray.remove(currentElement);
                     player.gainOnePoint();
@@ -26,7 +26,7 @@ public class GameController {
                 if (currentElement.isPassable() && currentElement.isMortal()) {
                     elementsArray.remove(currentElement);
                 }
-            }
+        }
         }
     }
 

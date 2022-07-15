@@ -2,7 +2,7 @@ package main.gamePhase;
 
 import main.model.Collectable;
 import main.model.GameElement;
-import main.model.collectable.javaCoffe;
+import main.model.collectable.JavaCoffe;
 import main.model.enemys.CPlusPlus;
 import main.model.enemys.Haskell;
 import main.model.scene.Grass;
@@ -52,7 +52,7 @@ public class Phases {
                 {1,0},{0,7},{10,7},{10,8},{0,10}
         };
         for (int[] collectablePosition : collectableArray) {
-            obstacles.add(new javaCoffe(collectablePosition[0], collectablePosition[1], "collectableSprites/java3DCoffe.png"));
+            obstacles.add(new JavaCoffe(collectablePosition[0], collectablePosition[1], "collectableSprites/java3DCoffe.png"));
         }
 
         ArrayList<GameElement> enemies = new ArrayList<>();
