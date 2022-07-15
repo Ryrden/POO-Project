@@ -2,10 +2,10 @@ package main.model;
 
 import java.io.Serializable;
 
-public class characterExample extends Character_ implements Serializable {
+public class CharacterExample extends GameElement implements Serializable {
     private boolean right;
 
-    public characterExample(String imgNamePNG) {
+    public CharacterExample(String imgNamePNG) {
         super(imgNamePNG);
         right = true;
     }
