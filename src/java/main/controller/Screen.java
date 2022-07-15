@@ -6,8 +6,6 @@ import main.gamePhase.GamePhase;
 import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
-import main.model.CharacterExample;
-import main.model.EnemyExample;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -47,8 +45,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         characterArray = new ArrayList<>(100);
 
         /*Cria e adiciona personagens*/
-        player = new Player("caracterSprites/java.png");
-        player.setPosition(0, 7);
+        player = new Player(0,7,"caracterSprites/java.png");
         this.addCharacter_(player);
 
         GamePhase phase = Phases.Phase1();

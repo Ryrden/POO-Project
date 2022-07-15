@@ -5,9 +5,8 @@ import main.assistant.Drawing;
 import java.io.Serializable;
 
 public class EnemyAttackExample extends GameElement implements Serializable {
-    public EnemyAttackExample(String imgNamePNG) {
-        super(imgNamePNG);
-        this.mortal = true;
+    public EnemyAttackExample(int posX, int posY, String imgNamePNG) {
+        super(posX, posY, imgNamePNG);
     }
 
     @Override
