@@ -52,7 +52,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
     public void loadPhase(int phaseNumber) {
         this.characterArray.clear();
 
-        player = new Player(0,7,"caracterSprites/java.png");
+        player = new Player(0,7,"caracterSprites/normalDuke.png");
         this.addCharacter_(player);
 
         GamePhase phase;
@@ -96,7 +96,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         Graphics g = this.getBufferStrategy().getDrawGraphics();
         /*Criamos um contexto gráfico*/
         graphics = g.create(getInsets().left, getInsets().top, getWidth() - getInsets().right, getHeight() - getInsets().top);
-        drawBackground();
+        drawBackground("scenerySprites/background.png");
         if (!this.characterArray.isEmpty()) {
             this.gameController.drawAll(characterArray);
             this.gameController.processAll(characterArray);
@@ -109,11 +109,11 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         }
     }
 
-    private void drawBackground() {
+    private void drawBackground(String backgroundPath) {
         for (int i = 0; i < Constants.RESOLUTION; i++) {
             for (int j = 0; j < Constants.RESOLUTION; j++) {
                 try {
-                    Image newImage = Toolkit.getDefaultToolkit().getImage(new File(".").getCanonicalPath() + Constants.PATH + "bricks.png");
+                    Image newImage = Toolkit.getDefaultToolkit().getImage(new File(".").getCanonicalPath() + Constants.PATH + backgroundPath);
                     graphics.drawImage(newImage,
                             j * Constants.CELL_SIDE, i * Constants.CELL_SIDE, Constants.CELL_SIDE, Constants.CELL_SIDE, null);
 
@@ -175,8 +175,8 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
             player.backToLastPosition();
         }
 
-        this.setTitle("-> Cell: " + (player.getPosition().getPosY()) + ", "
-                + (player.getPosition().getPosX()));
+        this.setTitle("-> Cell: " + (player.getPosition().getPosX()) + ", "
+                + (player.getPosition().getPosY()));
 
         //repaint(); /*invoca o paint imediatamente, sem aguardar o refresh*/
     }

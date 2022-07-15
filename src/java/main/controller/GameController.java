@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class GameController {
     public void drawAll(ArrayList<GameElement> characterArrayList) {
-        for (GameElement character_ : characterArrayList) {
-            character_.autoDraw();
+        for (int i = characterArrayList.size()-1; i >= 0; i--) {
+            characterArrayList.get(i).autoDraw();
         }
     }
 
@@ -18,7 +18,7 @@ public class GameController {
         GameElement characterTemp;
         for (int i = 1; i < characterArrayList.size(); i++) {
             characterTemp = characterArrayList.get(i);
-            if (characterTemp.isPassable() && player.getPosition().equals(characterTemp.getPosition()))
+            if (characterTemp.isPassable() && characterTemp.isMortal() && player.getPosition().equals(characterTemp.getPosition()))
                 characterArrayList.remove(characterTemp);
         }
     }
