@@ -5,6 +5,7 @@ import main.model.GameElement;
 import main.model.collectable.JavaCoffe;
 import main.model.enemys.CPlusPlus;
 import main.model.enemys.Haskell;
+import main.model.scene.Chest;
 import main.model.scene.Grass;
 import main.model.scene.Wall;
 
@@ -55,6 +56,7 @@ public class Phases {
         for (int[] collectablePosition : collectableArray) {
             obstacles.add(new JavaCoffe(collectablePosition[0], collectablePosition[1], "collectableSprites/java3DCoffe.png"));
         }
+        obstacles.add(new Chest(2, 5, "sceneSprites/chestClosed.png"));
 
         ArrayList<GameElement> enemies = new ArrayList<>();
         ArrayList<GameElement> collectables = new ArrayList<>();
@@ -134,25 +136,26 @@ public class Phases {
                 collectables,
                 finalChest);
     }
+
     public static GamePhase Phase3() {
         ArrayList<GameElement> obstacles = new ArrayList<>();
         int[][] wallPositionsArray = {
                 {3, 0}, {8, 0},
-                {3, 1}, {4, 1}, {7,1}, {8,1},
+                {3, 1}, {4, 1}, {7, 1}, {8, 1},
                 {1, 3}, {2, 3}, {3, 3},
                 {4, 4},
                 {9, 7},
-                {8,8},
+                {8, 8},
                 {8, 9},
         };
         for (int[] wallPosition : wallPositionsArray) {
             obstacles.add(new Wall(wallPosition[1], wallPosition[0], "scenerySprites/obstacle1.png"));
         }
         int[][] bushPositionsArray = {
-                {5,0}, {6,0},
-                {6,1},
-                {0,3}, {4,3}, {5,3}, {6,3}, {8,3}, {9,3},
-                {5,4},
+                {5, 0}, {6, 0},
+                {6, 1},
+                {0, 3}, {4, 3}, {5, 3}, {6, 3}, {8, 3}, {9, 3},
+                {5, 4},
                 {9, 7},
                 {5, 8},
                 {4, 9},

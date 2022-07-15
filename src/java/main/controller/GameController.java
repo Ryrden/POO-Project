@@ -2,6 +2,7 @@ package main.controller;
 
 import main.assistant.Position;
 import main.gamePhase.HudBar;
+import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
 
@@ -36,9 +37,23 @@ public class GameController {
                         elementsArray.remove(player);
                     }
                 }
+                /*
+                if (player.getPoints() == phase.minimumPointsToClearLevel(){
+                    phase.nextLevel();
+                }
+                */
             }
         }
+    }
 
+    public int getMinimunPointsToClearLeve(ArrayList<GameElement> elementsArray) {
+        int minimunPoints = 0;
+        for (int i = 0; i < elementsArray.size(); i++) {
+            if (elementsArray.get(i).isCollectable()) {
+                minimunPoints++;
+            }
+        }
+        return minimunPoints;
     }
 
     /*Retorna true se a posicao p é válida para Lolo com relacao a todos os personagens no array*/

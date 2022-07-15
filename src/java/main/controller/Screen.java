@@ -3,7 +3,6 @@ package main.controller;
 import main.assistant.Constants;
 import main.assistant.Drawing;
 import main.gamePhase.GamePhase;
-import main.gamePhase.HudBar;
 import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
@@ -48,8 +47,6 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         characterArray = new ArrayList<>(100);
 
         /*Cria e adiciona personagens*/
-
-        loadPhase(1);
     }
 
     public void loadPhase(int phaseNumber) {
