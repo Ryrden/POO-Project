@@ -44,23 +44,23 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         characterArray = new ArrayList<>(100);
 
         /*Cria e adiciona personagens*/
-        player = new Player("lolo.png");
+        player = new Player("caracterSprites/java.png");
         player.setPosition(0, 7);
         this.addCharacter_(player);
 
-        characterExample characterExample = new characterExample("bichinho.png");
+        characterExample characterExample = new characterExample("caracterSprites/python.png");
         characterExample.setPosition(3, 3);
         this.addCharacter_(characterExample);
 
-        characterExample characterExampleH2 = new characterExample("bichinho.png");
+        characterExample characterExampleH2 = new characterExample("caracterSprites/C++.png");
         characterExampleH2.setPosition(6, 6);
         this.addCharacter_(characterExampleH2);
 
-        characterExample characterExampleH3 = new characterExample("bichinho.png");
+        characterExample characterExampleH3 = new characterExample("caracterSprites/Fortran.png");
         characterExampleH3.setPosition(2, 9);
         this.addCharacter_(characterExampleH3);
 
-        EnemyExample bV = new EnemyExample("caveira.png");
+        EnemyExample bV = new EnemyExample("caracterSprites/Haskell.png");
         bV.setPosition(9, 1);
         this.addCharacter_(bV);
 
