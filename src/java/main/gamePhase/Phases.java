@@ -134,4 +134,59 @@ public class Phases {
                 finalChest
         );
     }
+    public static GamePhase Phase3() {
+        ArrayList<GameElement> obstacles = new ArrayList<>();
+        int[][] wallPositionsArray = {
+                {3, 0}, {8, 0},
+                {3, 1}, {4, 1}, {7,1}, {8,1},
+                {1, 3}, {2, 3}, {3, 3},
+                {4, 4},
+                {9, 7},
+                {8,8},
+                {8, 9},
+        };
+        for (int[] wallPosition : wallPositionsArray) {
+            obstacles.add(new Wall(wallPosition[1], wallPosition[0], "scenerySprites/obstacle1.png"));
+        }
+        int[][] bushPositionsArray = {
+                {5,0}, {6,0},
+                {6,1},
+                {0,3}, {4,3}, {5,3}, {6,3}, {8,3}, {9,3},
+                {5,4},
+                {9, 7},
+                {5, 8},
+                {4, 9},
+                {8, 10},
+        };
+        for (int[] Position : bushPositionsArray) {
+            obstacles.add(new Wall(Position[1], Position[0], "scenerySprites/obstacle2.png"));
+        }
+
+        ArrayList<GameElement> enemies = new ArrayList<>();
+
+        enemies.add(new CPlusPlus(0, 0, "bichinho.png"));
+
+        ArrayList<GameElement> collectables = new ArrayList<>();
+        int[][] collectablesPositionsArray = {
+                {7, 0},
+                {3, 2},
+                {0, 4}, {2, 4},
+                {1, 7},
+                {9, 8},
+        };
+
+        for (int[] Position : collectablesPositionsArray) {
+            enemies.add(new Collectable(Position[1], Position[0], "temer.png"));
+        }
+
+
+        ArrayList<GameElement> finalChest = new ArrayList<>();
+
+        return new GamePhase(
+                obstacles,
+                enemies,
+                collectables,
+                finalChest
+        );
+    }
 }
