@@ -1,8 +1,8 @@
 package main.gamePhase;
 
-import main.model.CharacterExample;
-import main.model.EnemyExample;
 import main.model.GameElement;
+import main.model.StaticObstacle;
+import main.model.scene.Wall;
 
 import java.util.ArrayList;
 
@@ -11,20 +11,18 @@ public class Phases {
 
         ArrayList<GameElement> obstacles = new ArrayList<GameElement>();
 
-        CharacterExample bV = new CharacterExample("scenerySprites/obstacle1.png");
-        bV.setPosition(4, 4);
+        StaticObstacle bV = new Wall(4, 4, "scenerySprites/obstacle1.png");
         obstacles.add(bV);
 
         ArrayList<GameElement> enemies = new ArrayList<GameElement>();
         ArrayList<GameElement> collectables = new ArrayList<GameElement>();
         ArrayList<GameElement> finalChest = new ArrayList<GameElement>();
 
-        GamePhase phase = new GamePhase(
+        return new GamePhase(
                 obstacles,
                 enemies,
                 collectables,
                 finalChest
         );
-        return phase;
     }
 }

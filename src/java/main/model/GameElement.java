@@ -17,10 +17,11 @@ public abstract class GameElement implements Serializable {
     protected boolean mortal;       /*Se encostar, o Bomberman morre?*/
 
 
-    protected GameElement(String imgNamePNG) {
+    protected GameElement(int posX, int posY,String imgNamePNG) {
         this.position = new Position(1, 1);
         this.isPassable = true;
         this.mortal = false;
+        setPosition(posX, posY);
         try {
             image = new ImageIcon(new java.io.File(".").getCanonicalPath() + Constants.PATH + imgNamePNG);
             Image img = image.getImage();
