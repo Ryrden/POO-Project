@@ -4,7 +4,7 @@ import main.assistant.Drawing;
 
 import java.io.Serializable;
 
-public class EnemyAttackExample extends Character_ implements Serializable {
+public class EnemyAttackExample extends GameElement implements Serializable {
     public EnemyAttackExample(String imgNamePNG) {
         super(imgNamePNG);
         this.mortal = true;

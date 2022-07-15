@@ -10,14 +10,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.Serializable;
 
-public abstract class Character_ implements Serializable {
+public abstract class GameElement implements Serializable {
     protected ImageIcon image;
     protected Position position;
     protected boolean isPassable; /*Pode passar por cima?*/
     protected boolean mortal;       /*Se encostar, o Bomberman morre?*/
 
 
-    protected Character_(String imgNamePNG) {
+    protected GameElement(String imgNamePNG) {
         this.position = new Position(1, 1);
         this.isPassable = true;
         this.mortal = false;

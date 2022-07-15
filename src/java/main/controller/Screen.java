@@ -2,9 +2,9 @@ package main.controller;
 
 import main.assistant.Constants;
 import main.assistant.Drawing;
-import main.model.Character_;
+import main.model.GameElement;
 import main.model.Player;
-import main.model.characterExample;
+import main.model.CharacterExample;
 import main.model.EnemyExample;
 
 import java.awt.*;
@@ -24,7 +24,7 @@ import java.util.zip.GZIPOutputStream;
 public class Screen extends javax.swing.JFrame implements MouseListener, KeyListener {
 
     private Player player;
-    private ArrayList<Character_> characterArray;
+    private ArrayList<GameElement> characterArray;
     private GameController gameController = new GameController();
     private Graphics graphics;
 
@@ -49,33 +49,29 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         player.setPosition(0, 7);
         this.addCharacter_(player);
 
-        characterExample characterExample = new characterExample("caracterSprites/python.png");
+        CharacterExample characterExample = new CharacterExample("caracterSprites/python.png");
         characterExample.setPosition(3, 3);
         this.addCharacter_(characterExample);
 
-        characterExample characterExampleH2 = new characterExample("caracterSprites/C++.png");
+        CharacterExample characterExampleH2 = new CharacterExample("caracterSprites/C++.png");
         characterExampleH2.setPosition(6, 6);
         this.addCharacter_(characterExampleH2);
 
-        characterExample characterExampleH3 = new characterExample("caracterSprites/Fortran.png");
+        CharacterExample characterExampleH3 = new CharacterExample("caracterSprites/Fortran.png");
         characterExampleH3.setPosition(2, 9);
         this.addCharacter_(characterExampleH3);
 
         EnemyExample bV = new EnemyExample("caracterSprites/Haskell.png");
         bV.setPosition(9, 1);
         this.addCharacter_(bV);
-
-//            ZigueZague zz = new ZigueZague("temer");
-//            zz.setPosition(5, 5);
-//            this.addCharacter_(zz);
     }
 
 
-    public void addCharacter_(Character_ aCharacter) {
+    public void addCharacter_(GameElement aCharacter) {
         characterArray.add(aCharacter);
     }
 
-    public void removeCharacter(Character_ aCharacter) {
+    public void removeCharacter(GameElement aCharacter) {
         characterArray.remove(aCharacter);
     }
 
@@ -134,7 +130,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
                 FileInputStream fileOut = new FileInputStream(fileData);
                 GZIPInputStream compactor = new GZIPInputStream(fileOut);
                 ObjectInputStream serializer = new ObjectInputStream(compactor);
-                this.characterArray = (ArrayList<Character_>) serializer.readObject();
+                this.characterArray = (ArrayList<GameElement>) serializer.readObject();
                 this.player = (Player) this.characterArray.get(0);
                 serializer.close();
             } catch (Exception ex) {

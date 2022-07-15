@@ -5,7 +5,7 @@ import main.assistant.Drawing;
 
 import java.io.Serializable;
 
-public class EnemyExample extends Character_ implements Serializable {
+public class EnemyExample extends GameElement implements Serializable {
     private int intervalCounter;
 
     public EnemyExample(String imgNamePNG) {

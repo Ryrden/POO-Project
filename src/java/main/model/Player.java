@@ -2,7 +2,7 @@ package main.model;
 
 import java.io.Serializable;
 
-public class Player extends Character_ implements Serializable {
+public class Player extends GameElement implements Serializable {
     public Player(String  imgNamePNG) {
         super(imgNamePNG);
     }
