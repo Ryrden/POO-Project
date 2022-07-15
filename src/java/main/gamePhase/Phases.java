@@ -1,5 +1,6 @@
 package main.gamePhase;
 
+import main.assistant.Position;
 import main.model.Collectable;
 import main.model.GameElement;
 import main.model.collectable.JavaCoffe;
@@ -8,6 +9,7 @@ import main.model.enemys.Haskell;
 import main.model.scene.Chest;
 import main.model.scene.Grass;
 import main.model.scene.Wall;
+import main.model.scene.Water;
 
 import java.util.ArrayList;
 
@@ -164,6 +166,13 @@ public class Phases {
         };
         for (int[] Position : bushPositionsArray) {
             obstacles.add(new Wall(Position[1], Position[0], "scenerySprites/obstacle2.png"));
+        }
+        int [][] waterPositionArray = {
+                {4,3},{5,3},{6,3},{7,3},{8,3},{9,3},
+                {6,4},{7,4},{8,4},{7,5}
+        };
+        for(int[] Position : waterPositionArray) {
+            obstacles.add(new Water(Position[0],Position[1], "caracterSprites/python.png"));
         }
 
         ArrayList<GameElement> enemies = new ArrayList<>();
