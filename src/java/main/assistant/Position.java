@@ -12,12 +12,12 @@ public class Position {
     }
 
     public boolean setPosition(int posX, int posY) {
-        if (posX < 0 || posX >= Constants.RESOLUTION)
+        if (posX < 0 || posX >= Constants.HEIGHT_RESOLUTION)
             return false;
         previousPosX = this.posX;
         this.posX = posX;
 
-        if (posY < 0 || posY >= Constants.RESOLUTION)
+        if (posY < 0 || posY >= Constants.WIDTH_RESOLUTION)
             return false;
         previousPosY = this.posY;
         this.posY = posY;
@@ -44,7 +44,6 @@ public class Position {
     public boolean copy(Position position) {
         return this.setPosition(position.getPosX(), position.getPosY());
     }
-
 
     public boolean moveUp() {
         return this.setPosition(this.getPosX() - 1, this.getPosY());

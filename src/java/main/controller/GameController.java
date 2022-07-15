@@ -1,6 +1,7 @@
 package main.controller;
 
 import main.assistant.Position;
+import main.gamePhase.HudBar;
 import main.model.GameElement;
 import main.model.Player;
 
@@ -16,18 +17,28 @@ public class GameController {
     public void processAll(ArrayList<GameElement> elementsArray) {
         Player player = (Player) elementsArray.get(0);
         GameElement currentElement;
+        HudBar hudBar = HudBar.getInstance();
         for (int i = 1; i < elementsArray.size(); i++) {
             currentElement = elementsArray.get(i);
-        if (player.getPosition().equals(currentElement.getPosition())){
+            if (player.getPosition().equals(currentElement.getPosition())) {
                 if (currentElement.isCollectable()) {
                     elementsArray.remove(currentElement);
                     player.gainOnePoint();
+                    hudBar.updatePoints(player.getPoints());
                 }
                 if (currentElement.isPassable() && currentElement.isMortal()) {
                     elementsArray.remove(currentElement);
                 }
+                if (currentElement.isMortal()) {
+                    player.loseOneLife();
+                    hudBar.updateLife(player.getLife());
+                    if (player.getLife() <= 0) {
+                        elementsArray.remove(player);
+                    }
+                }
+            }
         }
-        }
+
     }
 
     /*Retorna true se a posicao p é válida para Lolo com relacao a todos os personagens no array*/

@@ -9,7 +9,7 @@ public class Main {
             screen.setVisible(true);
             screen.createBufferStrategy(2);
             screen.go();
-            screen.loadPhase(3);
+            screen.loadPhase(1);
         });
     }
 }

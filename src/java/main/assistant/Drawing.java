@@ -16,11 +16,11 @@ public class Drawing implements Serializable {
         return scene;
     }
 
-    public static Graphics getGraphicsDaTela() {
+    public static Graphics getScreenGraphics() {
         return scene.getGraphicsBuffer();
     }
 
     public static void draw(ImageIcon iImage, int posX, int posY) {
-        iImage.paintIcon(scene,getGraphicsDaTela(),posY * Constants.CELL_SIDE, posX * Constants.CELL_SIDE);
+        iImage.paintIcon(scene,getScreenGraphics(),posY * Constants.CELL_SIDE, posX * Constants.CELL_SIDE);
     }
 }

@@ -3,15 +3,18 @@ package main.controller;
 import main.assistant.Constants;
 import main.assistant.Drawing;
 import main.gamePhase.GamePhase;
+import main.gamePhase.HudBar;
 import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -38,8 +41,8 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
 
         this.addKeyListener(this);   /*teclado*/
         /*Cria a janela do tamanho do tabuleiro + insets (bordas) da janela*/
-        this.setSize(Constants.RESOLUTION * Constants.CELL_SIDE + getInsets().left + getInsets().right,
-                Constants.RESOLUTION * Constants.CELL_SIDE + getInsets().top + getInsets().bottom);
+        this.setSize((Constants.WIDTH_RESOLUTION) * Constants.CELL_SIDE + getInsets().left + getInsets().right,
+                Constants.HEIGHT_RESOLUTION * Constants.CELL_SIDE + getInsets().top + getInsets().bottom);
 
         this.setTitle("Java Battle Survivors - POO Project");
         characterArray = new ArrayList<>(100);
@@ -56,7 +59,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         this.addCharacter_(player);
 
         GamePhase phase;
-        switch (phaseNumber){
+        switch (phaseNumber) {
             case 3:
                 phase = Phases.Phase3();
                 break;
@@ -83,8 +86,27 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         for (GameElement gameElement : phase.getFinalChest()) {
             this.addCharacter_(gameElement);
         }
+
+        for (GameElement hudBar : phase.getHudBar()) {
+            this.addCharacter_(hudBar);
+        }
     }
 
+    public static ImageIcon loadImage(String imgNamePNG) {
+        ImageIcon image = null;
+        try {
+            image = new ImageIcon(new java.io.File(".").getCanonicalPath() + Constants.PATH + imgNamePNG);
+            Image img = image.getImage();
+            BufferedImage bufferedImg = new BufferedImage(Constants.CELL_SIDE, Constants.CELL_SIDE, BufferedImage.TYPE_INT_ARGB);
+            Graphics graphics = bufferedImg.createGraphics();
+            graphics.drawImage(img, 0, 0, Constants.CELL_SIDE, Constants.CELL_SIDE, null);
+            image = new ImageIcon(bufferedImg);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return image;
+    }
 
     public void addCharacter_(GameElement aCharacter) {
         characterArray.add(aCharacter);
@@ -120,13 +142,12 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
     }
 
     private void drawBackground(String backgroundPath) {
-        for (int i = 0; i < Constants.RESOLUTION; i++) {
-            for (int j = 0; j < Constants.RESOLUTION; j++) {
+        for (int i = 0; i < Constants.HEIGHT_RESOLUTION; i++) {
+            for (int j = 0; j < Constants.WIDTH_RESOLUTION; j++) {
                 try {
                     Image newImage = Toolkit.getDefaultToolkit().getImage(new File(".").getCanonicalPath() + Constants.PATH + backgroundPath);
                     graphics.drawImage(newImage,
                             j * Constants.CELL_SIDE, i * Constants.CELL_SIDE, Constants.CELL_SIDE, Constants.CELL_SIDE, null);
-
                 } catch (IOException ex) {
                     Logger.getLogger(Screen.class.getName()).log(Level.SEVERE, null, ex);
                 }

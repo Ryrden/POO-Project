@@ -14,6 +14,7 @@ public class Phases {
     public static GamePhase Phase1() {
 
         ArrayList<GameElement> obstacles = new ArrayList<>();
+
         int[][] wallPositionsArray = {
                 {0, 0}, {2, 0}, {9, 0}, {10, 0},
                 {10, 3}, {9, 4}, {10, 4}, {9, 5},
@@ -42,14 +43,14 @@ public class Phases {
         }
 
         int[][] enemyArray = {
-                {1,1},{5,3},{5,7}
+                {1, 1}, {5, 3}, {5, 7}
         };
         for (int[] enemyPosition : enemyArray) {
             obstacles.add(new CPlusPlus(enemyPosition[0], enemyPosition[1], "caracterSprites/c++.png"));
         }
 
         int[][] collectableArray = {
-                {1,0},{0,7},{10,7},{10,8},{0,10}
+                {1, 0}, {0, 7}, {10, 7}, {10, 8}, {0, 10}
         };
         for (int[] collectablePosition : collectableArray) {
             obstacles.add(new JavaCoffe(collectablePosition[0], collectablePosition[1], "collectableSprites/java3DCoffe.png"));
@@ -64,21 +65,21 @@ public class Phases {
                 obstacles,
                 enemies,
                 collectables,
-                finalChest
-        );
+                finalChest);
     }
 
     public static GamePhase Phase2() {
         ArrayList<GameElement> obstacles = new ArrayList<>();
+
         int[][] wallPositionsArray = {
                 {9, 1},
                 {1, 2}, {7, 2},
                 {1, 3}, {3, 3}, {5, 3},
                 {0, 4}, {9, 4},
                 {3, 5}, {8, 5},
-                {2, 7}, {4,7}, {5,7}, {7, 7},
-                {1,9},
-                {0, 10}, {3,10}, {8, 10},
+                {2, 7}, {4, 7}, {5, 7}, {7, 7},
+                {1, 9},
+                {0, 10}, {3, 10}, {8, 10},
         };
         for (int[] wallPosition : wallPositionsArray) {
             obstacles.add(new Wall(wallPosition[1], wallPosition[0], "scenerySprites/obstacle1.png"));
@@ -86,9 +87,9 @@ public class Phases {
         int[][] bushPositionsArray = {
                 {1, 0}, {3, 0}, {4, 0}, {5, 0}, {7, 0},
                 {3, 1}, {5, 1}, {7, 1},
-                {9,2},
-                {9,3},{7, 3},
-                {1, 4}, {5,4},
+                {9, 2},
+                {9, 3}, {7, 3},
+                {1, 4}, {5, 4},
                 {2, 5}, {4, 5}, {6, 5},
                 {0, 6}, {10, 6},
                 {3, 7}, {6, 7}, {8, 7}, {9, 7},
@@ -114,7 +115,7 @@ public class Phases {
         ArrayList<GameElement> collectables = new ArrayList<>();
         int[][] collectablesPositionsArray = {
                 {2, 0}, {6, 0},
-                {0, 5},{5,5},
+                {0, 5}, {5, 5},
                 {10, 7},
                 {6, 8},
                 {0, 9},
@@ -131,8 +132,7 @@ public class Phases {
                 obstacles,
                 enemies,
                 collectables,
-                finalChest
-        );
+                finalChest);
     }
     public static GamePhase Phase3() {
         ArrayList<GameElement> obstacles = new ArrayList<>();
