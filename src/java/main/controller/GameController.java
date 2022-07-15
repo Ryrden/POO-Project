@@ -20,7 +20,7 @@ public class GameController {
         Player player = (Player) elementsArray.get(0);
         GameElement currentElement;
         HudBar hudBar = HudBar.getInstance();
-        if (player.getPoints() == getMinimunPointsToClearLeve (elementsArray)){
+        if (player.getPoints() >= getMinimunPointsToClearLeve (elementsArray)){
             Chest chest = getChest(elementsArray);
             if(chest.isOpen() == false) {
                 chest.setOpen(true);
@@ -47,11 +47,6 @@ public class GameController {
                         elementsArray.remove(player);
                     }
                 }
-                /*
-                if (player.getPoints() == phase.minimumPointsToClearLevel(){
-                    phase.nextLevel();
-                }
-                */
             }
         }
     }

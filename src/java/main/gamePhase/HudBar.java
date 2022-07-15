@@ -17,7 +17,10 @@ public class HudBar  {
         }
         return hudBar;
     }
-
+    public void resetHudBar(){
+        this.updateLife(5);
+        this.updatePoints(-1);
+    }
     public void updatePoints(int points) {
         this.points = points;
     }

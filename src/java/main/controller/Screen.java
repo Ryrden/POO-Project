@@ -3,6 +3,7 @@ package main.controller;
 import main.assistant.Constants;
 import main.assistant.Drawing;
 import main.gamePhase.GamePhase;
+import main.gamePhase.HudBar;
 import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
@@ -53,11 +54,16 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
 
     public void loadPhase(int phaseNumber) {
         this.clearCharacters();
-
-        player = new Player(0, 7, "caracterSprites/normalDuke.png");
+        if (currentPhase == 1)
+            player = new Player(7, 5, "caracterSprites/normalDuke.png");
+        else if (currentPhase > 1)
+            player = new Player(10, 10, "caracterSprites/normalDuke.png");
+        else
+            player = new Player(10, 0, "caracterSprites/normalDuke.png");
         this.addCharacter_(player);
 
         GamePhase phase;
+        HudBar.getInstance().resetHudBar();
         switch (phaseNumber) {
             case 3:
                 phase = Phases.Phase3();
