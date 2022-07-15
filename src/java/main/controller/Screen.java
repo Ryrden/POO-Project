@@ -25,7 +25,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
 
     private Player player;
     private ArrayList<GameElement> characterArray;
-    private GameController gameController = new GameController();
+    private final GameController gameController = new GameController();
     private Graphics graphics;
 
     /**
@@ -50,13 +50,13 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
     }
 
     public void loadPhase(int phaseNumber) {
-        this.characterArray.clear();
+        this.clearCharacters();
 
-        player = new Player(0,7,"caracterSprites/normalDuke.png");
+        player = new Player(0, 7, "caracterSprites/normalDuke.png");
         this.addCharacter_(player);
 
         GamePhase phase;
-        switch (phaseNumber){
+        switch (phaseNumber) {
             default:
                 phase = Phases.Phase1();
                 break;
@@ -86,6 +86,10 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
 
     public void removeCharacter(GameElement aCharacter) {
         characterArray.remove(aCharacter);
+    }
+
+    public void clearCharacters() {
+        characterArray.clear();
     }
 
     public Graphics getGraphicsBuffer() {
@@ -136,7 +140,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
 
     public void keyPressed(KeyEvent key) {
         if (key.getKeyCode() == KeyEvent.VK_C) {
-            this.characterArray.clear();
+            this.clearCharacters();
         } else if (key.getKeyCode() == KeyEvent.VK_L) {
             try {
                 File fileData = new File("c:\\temp\\POO.zip");
