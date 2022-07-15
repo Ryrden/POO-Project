@@ -1,5 +1,6 @@
 package main.gamePhase;
 
+import main.model.Collectable;
 import main.model.GameElement;
 import main.model.collectable.JavaCoffe;
 import main.model.enemys.CPlusPlus;
@@ -111,6 +112,19 @@ public class Phases {
         enemies.add(new CPlusPlus(6, 4, "bichinho.png"));
 
         ArrayList<GameElement> collectables = new ArrayList<>();
+        int[][] collectablesPositionsArray = {
+                {2, 0}, {6, 0},
+                {0, 5},{5,5},
+                {10, 7},
+                {6, 8},
+                {0, 9},
+        };
+
+        for (int[] Position : collectablesPositionsArray) {
+            enemies.add(new Collectable(Position[1], Position[0], "temer.png"));
+        }
+
+
         ArrayList<GameElement> finalChest = new ArrayList<>();
 
         return new GamePhase(
