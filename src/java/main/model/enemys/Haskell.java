@@ -10,7 +10,7 @@ public class Haskell extends GameElement {
 
     public Haskell(int posX, int posY,String imgNamePNG) {
         super(posX,posY,imgNamePNG);
-        this.mortal = true;
+        this.isMortal = true;
         this.intervalCounter = 0;
     }
 
