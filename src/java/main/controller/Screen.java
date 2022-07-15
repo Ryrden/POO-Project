@@ -45,10 +45,22 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         characterArray = new ArrayList<>(100);
 
         /*Cria e adiciona personagens*/
+
+        loadPhase(1);
+    }
+
+    public void loadPhase(int phaseNumber) {
+        this.characterArray.clear();
+
         player = new Player(0,7,"caracterSprites/java.png");
         this.addCharacter_(player);
 
-        GamePhase phase = Phases.Phase1();
+        GamePhase phase;
+        switch (phaseNumber){
+            default:
+                phase = Phases.Phase1();
+                break;
+        }
 
         for (GameElement gameElement : phase.getObstacle()) {
             this.addCharacter_(gameElement);
