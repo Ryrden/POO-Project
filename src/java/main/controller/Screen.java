@@ -51,24 +51,23 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         player.setPosition(0, 7);
         this.addCharacter_(player);
 
-        CharacterExample characterExample = new CharacterExample("caracterSprites/python.png");
-        characterExample.setPosition(3, 3);
-        this.addCharacter_(characterExample);
-
-        CharacterExample characterExampleH2 = new CharacterExample("caracterSprites/C++.png");
-        characterExampleH2.setPosition(6, 6);
-        this.addCharacter_(characterExampleH2);
-
-        CharacterExample characterExampleH3 = new CharacterExample("caracterSprites/Fortran.png");
-        characterExampleH3.setPosition(2, 9);
-        this.addCharacter_(characterExampleH3);
-
-        EnemyExample bV = new EnemyExample("caracterSprites/Haskell.png");
-        bV.setPosition(9, 1);
-        this.addCharacter_(bV);
-
         GamePhase phase = Phases.Phase1();
-        this.addCharacter_(phase.getObstacle().get(0));
+
+        for (GameElement gameElement : phase.getObstacle()) {
+            this.addCharacter_(gameElement);
+        }
+
+        for (GameElement collectible : phase.getCollectibles()) {
+            this.addCharacter_(collectible);
+        }
+
+        for (GameElement enemy : phase.getEnemies()) {
+            this.addCharacter_(enemy);
+        }
+
+        for (GameElement gameElement : phase.getFinalChest()) {
+            this.addCharacter_(gameElement);
+        }
     }
 
 

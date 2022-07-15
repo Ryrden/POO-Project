@@ -1,5 +1,6 @@
 package main.gamePhase;
 
+import main.model.CharacterExample;
 import main.model.EnemyExample;
 import main.model.GameElement;
 
@@ -10,7 +11,7 @@ public class Phases {
 
         ArrayList<GameElement> obstacles = new ArrayList<GameElement>();
 
-        EnemyExample bV = new EnemyExample("scenerySprites/obstacle1.png");
+        CharacterExample bV = new CharacterExample("scenerySprites/obstacle1.png");
         bV.setPosition(4, 4);
         obstacles.add(bV);
 
