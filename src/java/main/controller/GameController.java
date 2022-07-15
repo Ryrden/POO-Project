@@ -5,6 +5,7 @@ import main.gamePhase.HudBar;
 import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
+import main.model.scene.Chest;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,15 @@ public class GameController {
         Player player = (Player) elementsArray.get(0);
         GameElement currentElement;
         HudBar hudBar = HudBar.getInstance();
+        if (player.getPoints() == getMinimunPointsToClearLeve (elementsArray)){
+            Chest chest = getChest(elementsArray);
+            if(chest.isOpen() == false) {
+                chest.setOpen(true);
+            }
+            if(chest.isOpen() & player.getPosition().equals(chest.getPosition())){
+                elementsArray.clear();
+            }
+        }
         for (int i = 1; i < elementsArray.size(); i++) {
             currentElement = elementsArray.get(i);
             if (player.getPosition().equals(currentElement.getPosition())) {
@@ -54,6 +64,21 @@ public class GameController {
             }
         }
         return minimunPoints;
+    }
+
+    Chest getChest(ArrayList<GameElement> elementsArray){
+        Chest chest;
+        for (GameElement element:
+             elementsArray) {
+            try {
+                chest = (Chest) element;
+                return chest;
+            }
+            catch(Exception e){
+                continue;
+            }
+        }
+        return null;
     }
 
     /*Retorna true se a posicao p é válida para Lolo com relacao a todos os personagens no array*/

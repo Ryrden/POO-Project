@@ -8,9 +8,11 @@ import main.model.DynamicObstacle;
 import javax.swing.*;
 
 public class Chest extends Collectable {
+
+
     boolean isOpen = false;
-    ImageIcon chestOpen = Screen.loadImage("scenerySprite/chestOpen.png");
-    ImageIcon chestClosed = Screen.loadImage("scenerySprite/chestClosed.png");
+    ImageIcon chestOpen = Screen.loadImage("collectableSprites/jarFile.png");
+    ImageIcon chestClosed = Screen.loadImage("collectableSprites/emptyFile.png");
     public Chest(int posX, int posY, String imgNamePNG) {
         super(posX, posY, imgNamePNG);
         setIsPassable(false);
@@ -24,8 +26,10 @@ public class Chest extends Collectable {
             Drawing.draw(chestClosed, this.position.getPosX(), this.position.getPosY());
         }
     }
-
-    private boolean isOpen() {
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+    public boolean isOpen() {
         return isOpen;
     }
 }

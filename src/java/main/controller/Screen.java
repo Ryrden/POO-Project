@@ -30,6 +30,8 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
     private final GameController gameController = new GameController();
     private Graphics graphics;
 
+    private int currentPhase=1;
+
     /**
      * Creates new form tabuleiro
      */
@@ -129,6 +131,12 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         if (!this.characterArray.isEmpty()) {
             this.gameController.drawAll(characterArray);
             this.gameController.processAll(characterArray);
+        }
+
+        if (this.characterArray.isEmpty()){
+            currentPhase++;
+            loadPhase(currentPhase);
+
         }
 
         g.dispose();

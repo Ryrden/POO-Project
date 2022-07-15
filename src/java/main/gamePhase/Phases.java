@@ -47,7 +47,7 @@ public class Phases {
                 {1, 1}, {5, 3}, {5, 7}
         };
         for (int[] enemyPosition : enemyArray) {
-            obstacles.add(new CPlusPlus(enemyPosition[0], enemyPosition[1], "caracterSprites/c++.png"));
+            obstacles.add(new CPlusPlus(enemyPosition[0], enemyPosition[1], "caracterSprites/C++.png"));
         }
 
         int[][] collectableArray = {
@@ -56,7 +56,7 @@ public class Phases {
         for (int[] collectablePosition : collectableArray) {
             obstacles.add(new JavaCoffe(collectablePosition[0], collectablePosition[1], "collectableSprites/java3DCoffe.png"));
         }
-        obstacles.add(new Chest(2, 5, "sceneSprites/chestClosed.png"));
+        obstacles.add(new Chest(2, 5, ""));
 
         ArrayList<GameElement> enemies = new ArrayList<>();
         ArrayList<GameElement> collectables = new ArrayList<>();
@@ -110,9 +110,9 @@ public class Phases {
         };
 
         for (int[] Position : enemyPositionsArray) {
-            enemies.add(new Haskell(Position[1], Position[0], "caveira.png"));
+            enemies.add(new Haskell(Position[1], Position[0], "caracterSprites/Haskell.png"));
         }
-        enemies.add(new CPlusPlus(6, 4, "bichinho.png"));
+        enemies.add(new CPlusPlus(6, 4, "caracterSprites/C++.png"));
 
         ArrayList<GameElement> collectables = new ArrayList<>();
         int[][] collectablesPositionsArray = {
@@ -124,11 +124,12 @@ public class Phases {
         };
 
         for (int[] Position : collectablesPositionsArray) {
-            enemies.add(new Collectable(Position[1], Position[0], "temer.png"));
+            collectables.add(new Collectable(Position[1], Position[0], "collectableSprites/java3DCoffe.png"));
         }
 
 
         ArrayList<GameElement> finalChest = new ArrayList<>();
+        finalChest.add(new Chest(0, 0, ""));
 
         return new GamePhase(
                 obstacles,
