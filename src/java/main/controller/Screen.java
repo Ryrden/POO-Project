@@ -46,7 +46,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
 
         /*Cria e adiciona personagens*/
 
-        loadPhase(2);
+        loadPhase(1);
     }
 
     public void loadPhase(int phaseNumber) {
