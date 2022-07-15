@@ -12,12 +12,15 @@ import java.io.Serializable;
 
 public abstract class GameElement implements Serializable {
     protected ImageIcon image;
-    protected Position position;
-    protected boolean isPassable = false; /*Pode passar por cima?*/
-    protected boolean isMortal = false;       /*Se encostar, o Bomberman morre?*/
-    protected boolean isCollectable = false;
+    protected Position position = new Position(0,0);
+    protected boolean isPassable; /*Pode passar por cima?*/
+    protected boolean isMortal;       /*Se encostar, o Bomberman morre?*/
+    protected boolean isCollectable;
 
     protected GameElement(int posX, int posY,String imgNamePNG) {
+        this.isPassable = false;
+        this.isMortal = false;
+        this.isCollectable = false;
         setPosition(posX, posY);
         try {
             image = new ImageIcon(new java.io.File(".").getCanonicalPath() + Constants.PATH + imgNamePNG);
