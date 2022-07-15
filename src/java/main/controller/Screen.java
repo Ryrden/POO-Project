@@ -41,6 +41,7 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         this.setSize(Constants.RESOLUTION * Constants.CELL_SIDE + getInsets().left + getInsets().right,
                 Constants.RESOLUTION * Constants.CELL_SIDE + getInsets().top + getInsets().bottom);
 
+        this.setTitle("Java Battle Survivors - POO Project");
         characterArray = new ArrayList<>(100);
 
         /*Cria e adiciona personagens*/
