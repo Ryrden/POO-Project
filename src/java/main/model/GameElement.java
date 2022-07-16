@@ -16,11 +16,13 @@ public abstract class GameElement implements Serializable {
     protected boolean isPassable; /*Pode passar por cima?*/
     protected boolean isMortal;       /*Se encostar, o Bomberman morre?*/
     protected boolean isCollectable;
+    protected boolean isPushable;
 
     protected GameElement(int posX, int posY,String imgNamePNG) {
         this.isPassable = false;
         this.isMortal = false;
         this.isCollectable = false;
+        this.isPushable = false;
         setPosition(posX, posY);
         try {
             image = new ImageIcon(new java.io.File(".").getCanonicalPath() + Constants.PATH + imgNamePNG);
@@ -65,27 +67,17 @@ public abstract class GameElement implements Serializable {
         isCollectable = collectable;
     }
 
+    public boolean isPushable(){return isPushable;}
+
+    public void setIsPushable(boolean pushable){
+        this.isPushable = pushable;
+    }
+
     public void autoDraw() {
         Drawing.draw(this.image, position.getPosX(), position.getPosY());
     }
 
     public boolean setPosition(int posX, int posY) {
         return position.setPosition(posX, posY);
-    }
-
-    public boolean moveUp() {
-        return this.position.moveUp();
-    }
-
-    public boolean moveDown() {
-        return this.position.moveDown();
-    }
-
-    public boolean moveRight() {
-        return this.position.moveRight();
-    }
-
-    public boolean moveLeft() {
-        return this.position.moveLeft();
     }
 }

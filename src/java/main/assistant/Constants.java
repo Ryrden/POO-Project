@@ -16,4 +16,9 @@ public class Constants {
     public static final int PERIOD = 80;
     public static final String PATH = File.separator + "imgs" + File.separator;
     public static final int TIMER_BOMB = 10;
+
+    public static final int RIGHT = 6;
+    public static final int LEFT = 4;
+    public static final int UP = 8;
+    public static final int DOWN = 2;
 }

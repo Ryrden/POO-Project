@@ -2,11 +2,13 @@ package main.controller;
 
 import main.assistant.Constants;
 import main.assistant.Drawing;
+import main.assistant.Position;
 import main.gamePhase.GamePhase;
 import main.gamePhase.HudBar;
 import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
+import main.model.Pushable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -220,7 +222,39 @@ public class Screen extends javax.swing.JFrame implements MouseListener, KeyList
         this.setTitle("-> Cell: " + (player.getPosition().getPosX()) + ", "
                 + (player.getPosition().getPosY()));
 
+        Position playerPosition;
+        if ((playerPosition = playerWantToPush()) != null){
+            Pushable elementToPush = (Pushable) characterArray.stream()
+                    .filter(elem -> elem instanceof Pushable && elem.getPosition().equals(playerPosition));
+            int playerDirection = player.getDirection();
+            if (playerDirection == Constants.UP) {
+                elementToPush.moveUp();
+            } else if (playerDirection == Constants.DOWN) {
+                elementToPush.moveDown();
+            } else if (playerDirection == Constants.LEFT) {
+                elementToPush.moveLeft();
+            } else if (playerDirection == Constants.RIGHT) {
+                elementToPush.moveRight();
+            }
+            if (gameController.isValidPosition(this.characterArray, elementToPush.getPosition())) {
+                elementToPush.backToLastPosition();
+            } else {
+                player.backToLastPosition();
+            }
+
+        }
         //repaint(); /*invoca o paint imediatamente, sem aguardar o refresh*/
+    }
+
+    private Position playerWantToPush() {
+        for (GameElement gameElement : this.characterArray) {
+            if (gameElement instanceof Pushable) {
+                if (gameElement.getPosition().equals(player.getPosition())) {
+                    return gameElement.getPosition();
+                }
+            }
+        }
+        return null;
     }
 
     public void mousePressed(MouseEvent e) {

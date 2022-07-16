@@ -6,10 +6,7 @@ import main.model.GameElement;
 import main.model.collectable.JavaCoffe;
 import main.model.enemys.CPlusPlus;
 import main.model.enemys.Haskell;
-import main.model.scene.Chest;
-import main.model.scene.Grass;
-import main.model.scene.Wall;
-import main.model.scene.Water;
+import main.model.scene.*;
 
 import java.util.ArrayList;
 
@@ -173,6 +170,14 @@ public class Phases {
         };
         for(int[] Position : waterPositionArray) {
             obstacles.add(new Water(Position[0],Position[1], "caracterSprites/python.png"));
+        }
+
+        int[][] pushableRocksPositionArray = {
+                {6,0},{6,1},{6,2},
+                {9,0},{9,1},{9,2},
+        };
+        for(int[] Position : pushableRocksPositionArray) {
+            obstacles.add(new RollingRock(Position[0],Position[1], "caracterSprites/Fortran.png"));
         }
 
         ArrayList<GameElement> enemies = new ArrayList<>();

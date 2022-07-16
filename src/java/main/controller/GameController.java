@@ -2,7 +2,6 @@ package main.controller;
 
 import main.assistant.Position;
 import main.gamePhase.HudBar;
-import main.gamePhase.Phases;
 import main.model.GameElement;
 import main.model.Player;
 import main.model.scene.Chest;
@@ -47,6 +46,7 @@ public class GameController {
                         elementsArray.remove(player);
                     }
                 }
+
             }
         }
     }
