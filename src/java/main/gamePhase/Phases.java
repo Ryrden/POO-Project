@@ -152,8 +152,8 @@ public class Phases {
             obstacles.add(new Wall(wallPosition[1], wallPosition[0], "scenerySprites/obstacle1.png"));
         }
         int[][] bushPositionsArray = {
-                {5, 0}, {6, 0},
-                {6, 1},
+                {4, 0}, {5, 0},
+                {5, 1},
                 {0, 3}, {4, 3}, {5, 3}, {6, 3}, {8, 3}, {9, 3},
                 {5, 4},
                 {9, 7},
@@ -169,7 +169,7 @@ public class Phases {
                 {6,4},{7,4},{8,4},{7,5}
         };
         for(int[] Position : waterPositionArray) {
-            obstacles.add(new Water(Position[0],Position[1], "caracterSprites/python.png"));
+            obstacles.add(new Water(Position[0],Position[1], "scenerySprites/404.png"));
         }
 
         int[][] pushableRocksPositionArray = {
@@ -177,12 +177,12 @@ public class Phases {
                 {9,0},{9,1},{9,2},
         };
         for(int[] Position : pushableRocksPositionArray) {
-            obstacles.add(new RollingRock(Position[0],Position[1], "caracterSprites/Fortran.png"));
+            obstacles.add(new RollingRock(Position[0],Position[1], "scenerySprites/error.png"));
         }
 
         ArrayList<GameElement> enemies = new ArrayList<>();
 
-        enemies.add(new CPlusPlus(0, 0, "bichinho.png"));
+        enemies.add(new CPlusPlus(0, 0, "caracterSprites/C++.png"));
 
         ArrayList<GameElement> collectables = new ArrayList<>();
         int[][] collectablesPositionsArray = {
@@ -194,11 +194,12 @@ public class Phases {
         };
 
         for (int[] Position : collectablesPositionsArray) {
-            enemies.add(new Collectable(Position[1], Position[0], "temer.png"));
+            enemies.add(new Collectable(Position[1], Position[0], "collectableSprites/java3DCoffe.png"));
         }
 
 
         ArrayList<GameElement> finalChest = new ArrayList<>();
+        finalChest.add(new Chest(4,1,""));
 
         return new GamePhase(
                 obstacles,
